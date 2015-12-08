@@ -1,8 +1,9 @@
+import pyglet
 from abc import *
 
 from pyglet.gl.gl import *
 from pyglet.gl.glu import *
-__author__ = 'pwngu'
+__author__ = 'mreilaener'
 
 
 class Orb:
@@ -24,6 +25,11 @@ class Orb:
         self.year_scale = year_scale
         self.day_scale = day_scale
         self.rotation_cw = rotation_cw
+
+        glEnable(GL_TEXTURE_2D)
+        self.im = pyglet.image.load("../resource/earth.jpg").get_image_data()
+        self.texture_id = GLuint(0)
+        glGenTextures(1, self.texture_id)
 
     def add_orb(self, orb):
 
@@ -58,6 +64,12 @@ class Orb:
 
         # dayscale
         glRotatef(self.cur_rotation_angle, 0, 1, 0)
+
+        # Textures
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
+        #glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1920, 1080, 0, GL_RGBA, GL_UNSIGNED_BYTE, self.im)
+        glBindTexture(GL_TEXTURE_2D, self.texture_id)
         gluSphere(self.surface, self.radius, 20, 12)
 
         for orb in self.system:

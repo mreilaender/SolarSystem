@@ -185,7 +185,7 @@ camera.z = 50
 # gluNewQuadrtic ist die standard textur
 q = gluNewQuadric()
 
-planet1 = Planet("Test Planet", 3, q, day_scale=0)
+planet1 = Planet("Test Planet", 3, q, year_scale=0.01, day_scale=0)
 planet2 = Planet("Test Planet2", 1, q, day_scale=0.5)
 planet3 = Planet("Test Planet3", 1, q, year_scale=0.5, day_scale=1)
 
