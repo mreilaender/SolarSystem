@@ -55,7 +55,7 @@ class Orb:
 
     def draw(self):
         # TODO alle Parameter auf attribute beziehen z.B. bei rotate
-        # Reihenfolge: Erst wird transliert DANN rotiert
+        # Reihenfolge: Erst wird rotiert DANN transliert, dann wieder rotiert
         # das was ganz unten steht wird als erstes ausgefuehrt
 
         # yearscale
@@ -66,11 +66,11 @@ class Orb:
         glRotatef(self.cur_rotation_angle, 0, 1, 0)
 
         # Textures
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
-        #glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1920, 1080, 0, GL_RGBA, GL_UNSIGNED_BYTE, self.im)
-        glBindTexture(GL_TEXTURE_2D, self.texture_id)
+        # TODO
         gluSphere(self.surface, self.radius, 20, 12)
+
+        # glTranslatef(3, 0, 0)
+        # gluSphere(self.surface, self.radius-0.5, 20, 12)
 
         for orb in self.system:
             orb.draw()

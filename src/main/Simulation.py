@@ -5,13 +5,14 @@ from pyglet.window import key
 
 from src.main.Camera import Camera
 from src.main.Orb import Planet
+from src.main.KeyHoldHandler import KeyHoldHandler
 
 from _thread import start_new_thread
 
 __author__ = 'mreilaender'
 
 # Window
-window = pyglet.window.Window(resizable=False, fullscreen=True)
+window = pyglet.window.Window(resizable=False, fullscreen=False)
 
 
 def init():
@@ -40,12 +41,6 @@ def on_draw():
     # Lade ModelView Matrix
     glMatrixMode(GL_MODELVIEW)
 
-    # Planet2
-    orbs["planet2"].pos_x = 10
-
-    # Planet3
-    orbs["planet3"].pos_x = 20
-
     for planet in orbs:
         glLoadIdentity()
         camera.draw()
@@ -66,38 +61,9 @@ def on_mouse_motion(x, y, dx, dy):
     # print("%s %s %s" % (camera.rotatex, camera.rotatey, camera.rotatez))
 
 
-def pressing():
-    factor = 0.00003
-    while keyboard[key.W]:
-        camera.z -= factor
-    while keyboard[key.S]:
-        camera.z += factor
-    while keyboard[key.A]:
-        camera.x -= factor
-    while keyboard[key.D]:
-        camera.x += factor
-
-    while keyboard[key.UP]:
-        camera.reset()
-        camera.rotatex = 1
-        camera.angle += factor
-    while keyboard[key.DOWN]:
-        camera.reset()
-        camera.rotatex = 1
-        camera.angle -= factor
-    while keyboard[key.LEFT]:
-        camera.reset()
-        camera.rotatey = 1
-        camera.angle += factor
-    while keyboard[key.RIGHT]:
-        camera.rotatey = 1
-        camera.angle -= factor
-
-
-
 @window.event
 def on_key_press(symbol, mod):
-    start_new_thread(pressing, ())
+    KeyHoldHandler(keyboard, camera).start()
     if symbol == key.SPACE:
         global stop
         stop = not stop
@@ -168,7 +134,7 @@ def pause(pause=True):
     pass
 
 
-# window.set_size(800, 600)
+window.set_size(1200, 800)
 window.set_mouse_visible(False)
 
 # stateHandler
@@ -185,10 +151,13 @@ camera.z = 50
 # gluNewQuadrtic ist die standard textur
 q = gluNewQuadric()
 
-planet1 = Planet("Test Planet", 3, q, year_scale=0.01, day_scale=0)
-planet2 = Planet("Test Planet2", 1, q, day_scale=0.5)
+planet1 = Planet("Test Planet", 3, q, day_scale=0)
+planet2 = Planet("Test Planet2", 1, q, day_scale=2, year_scale=2)
 planet3 = Planet("Test Planet3", 1, q, year_scale=0.5, day_scale=1)
 
+mond2 = Planet("Mond", 0.5, q, year_scale=1)
+mond2.pos_x = 5
+planet2.add_orb(mond2)
 stop = True
 
 orbs = {
@@ -196,6 +165,13 @@ orbs = {
     "planet2": planet2,
     "planet3": planet3
 }
+
+# Planet2
+orbs["planet2"].pos_x = 10
+
+# Planet3
+orbs["planet3"].pos_x = 20
+
 # Setting update method
 pyglet.clock.schedule(update)
 pyglet.app.run()
