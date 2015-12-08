@@ -27,9 +27,9 @@ class Orb:
         self.rotation_cw = rotation_cw
 
         glEnable(GL_TEXTURE_2D)
-        self.im = pyglet.image.load("../resource/earth.jpg").get_image_data()
-        self.texture_id = GLuint(0)
-        glGenTextures(1, self.texture_id)
+        # self.im = pyglet.image.load("../resource/earth.jpg").get_image_data()
+        # self.texture_id = GLuint(0)
+        # glGenTextures(1, self.texture_id)
 
     def add_orb(self, orb):
 
@@ -68,9 +68,6 @@ class Orb:
         # Textures
         # TODO
         gluSphere(self.surface, self.radius, 20, 12)
-
-        # glTranslatef(3, 0, 0)
-        # gluSphere(self.surface, self.radius-0.5, 20, 12)
 
         for orb in self.system:
             orb.draw()
