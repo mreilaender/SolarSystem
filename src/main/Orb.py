@@ -3,6 +3,7 @@ from abc import *
 
 from pyglet.gl.gl import *
 from pyglet.gl.glu import *
+
 __author__ = 'mreilaener'
 
 
@@ -26,7 +27,11 @@ class Orb:
         self.day_scale = day_scale
         self.rotation_cw = rotation_cw
 
-        glEnable(GL_TEXTURE_2D)
+        self.q = gluNewQuadric()
+        # self.surface = pyglet.image.load("../resource/example.png")
+        # self.texture = self.surface.get_texture()
+        # glEnable(GL_TEXTURE_2D)
+        # glEnable(GL_TEXTURE_2D)
         # self.im = pyglet.image.load("../resource/earth.jpg").get_image_data()
         # self.texture_id = GLuint(0)
         # glGenTextures(1, self.texture_id)
@@ -39,7 +44,6 @@ class Orb:
             raise Exception
 
     def set_system_center(self, orb):
-
         if isinstance(orb, Orb):
             self.system_center = orb
         else:
@@ -67,7 +71,8 @@ class Orb:
 
         # Textures
         # TODO
-        gluSphere(self.surface, self.radius, 20, 12)
+        gluSphere(self.q, self.radius, 20, 12)
+        # glBindTexture(self.texture.target, self.texture.id)
 
         for orb in self.system:
             orb.draw()
