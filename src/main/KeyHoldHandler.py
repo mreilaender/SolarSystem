@@ -3,14 +3,14 @@ from threading import Thread
 from pyglet.window import key
 
 
-class KeyHoldHandler(Thread):
+class KeyHoldHandler(object):
 
     def __init__(self, key_state_handler, camera):
-        super().__init__()
+        # super().__init__()
         self.key_state_handler = key_state_handler
         self.camera = camera
 
-    def run(self):
+    def pressing(self):
         factor = 0.00003
         while self.key_state_handler[key.W]:
             self.camera.z -= factor
