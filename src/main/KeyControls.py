@@ -23,8 +23,11 @@ class KeyControls(object):
         :param modifiers: TODO
         """
         self.keys[symbol] = True
-        if symbol == key.SPACE:
+
+        # Pause
+        if symbol == key.P:
             self.stopped = not self.stopped
+        # Close Window on ESC
         if symbol == key.ESCAPE:
             self.window.close()
 
@@ -69,10 +72,12 @@ class KeyControls(object):
             # self.camera.reset()
             self.camera.rotatey = 1
             self.camera.angle += dx
+            self.camera.rotatey = 0
         if dy != 0:
             # self.camera.reset()
             self.camera.rotatex = 1
             self.camera.angle -= dy
+            self.camera.rotatex = 0
         if dx != 0 and dy != 0:
             pass
 
