@@ -5,4 +5,4 @@ This repository represents a Solar System based on Pyglet, which uses pyopengl.
 To run this application, you need to have Python version 3.5 installed. The main file to be executed, is src/main.py
 
 # Dependencies
- - Pyglet
+ - Pyglet 1.2.4
