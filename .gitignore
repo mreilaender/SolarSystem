@@ -5,8 +5,7 @@
 
 # Pycharm
 .idea
-src/main/*.pyc
-src/tmp/*.pyc
+./src/tmp
 src/resource
 
 # Byte-compiled / optimized / DLL files
