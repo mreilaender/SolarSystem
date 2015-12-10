@@ -13,6 +13,12 @@ class KeyControls(object):
         self.window.push_handlers(self.keys, self.on_key_press, self.on_mouse_motion)
 
     def on_key_release(self, symbol, modifiers):
+        """
+        Gets called on key release
+
+        :param symbol: Key which has been pressed
+        :param modifiers: ?
+        """
         self.keys[symbol] = False
 
     def on_key_press(self, symbol, modifiers):
@@ -20,7 +26,7 @@ class KeyControls(object):
         Key press handler
 
         :param symbol: actual pressed symbol
-        :param modifiers: TODO
+        :param modifiers: ?
         """
         self.keys[symbol] = True
 
