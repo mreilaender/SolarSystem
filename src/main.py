@@ -65,7 +65,8 @@ def on_draw():
     glLoadIdentity()
 
     # Lege Perspektive fest
-    gluPerspective(fov, (window.width/window.height), 1, 100)
+    # last parameter: view distance - distance before objects become invisible
+    gluPerspective(fov, (window.width/window.height), 0.1, 8000.0)
 
     # Lade ModelView Matrix
     glMatrixMode(GL_MODELVIEW)
