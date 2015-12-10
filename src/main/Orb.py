@@ -67,10 +67,10 @@ class Orb:
         # Textures
         # TODO
         if self.surface is False:
-            gluSphere(self.sphere, self.radius, 512, 512)
+            gluSphere(self.sphere, self.radius, 64, 64)
         else:
             self.surface.draw()
-            gluSphere(self.sphere, self.radius, 20, 12)
+            gluSphere(self.sphere, self.radius, 64, 64)
             glDisable(self.surface.texture.target)
 
         for orb in self.system:
