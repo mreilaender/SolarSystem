@@ -5,7 +5,17 @@
 
 # Pycharm
 .idea
-./src/tmp
+
+# Python
+*.pyc
+
+# Word
+*.docx
+*.doc
+
+# Astah
+*.bak
+
 src/resource
 
 # Byte-compiled / optimized / DLL files
