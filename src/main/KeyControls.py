@@ -37,34 +37,6 @@ class KeyControls(object):
         if symbol == key.ESCAPE:
             self.window.close()
 
-        """
-        factor = 0.00003
-        while self.keys[key.W]:
-            self.camera.z -= factor
-        while self.keys[key.S]:
-            self.camera.z += factor
-        while self.keys[key.A]:
-            self.camera.x -= factor
-        while self.keys[key.D]:
-            self.camera.x += factor
-
-        while self.keys[key.UP]:
-            self.camera.reset()
-            self.camera.rotatex = 1
-            self.camera.angle += factor
-        while self.keys[key.DOWN]:
-            self.camera.reset()
-            self.camera.rotatex = 1
-            self.camera.angle -= factor
-        while self.keys[key.LEFT]:
-            self.camera.reset()
-            self.camera.rotatey = 1
-            self.camera.angle += factor
-        while self.keys[key.RIGHT]:
-            self.camera.rotatey = 1
-            self.camera.angle -= factor
-        """
-
     def on_mouse_motion(self, x, y, dx, dy):
         """
         Mouse movement/motion handler
@@ -74,6 +46,7 @@ class KeyControls(object):
         :param dx: Changed x-Coordinate since last call of mouse_motion
         :param dy: Changed y-Coordinate since last call of mouse_motion
         """
+        print("dx: %s, dy: %s" % (dx, dy))
         if dx != 0:
             # self.camera.reset()
             self.camera.rotatey = 1
