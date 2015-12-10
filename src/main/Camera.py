@@ -1,9 +1,7 @@
 from pyglet.gl import glTranslatef, glRotatef
 
-from src.tmp.Drawable import Drawable
 
-
-class Camera(Drawable):
+class Camera(object):
 
     def update(self):
         pass
@@ -22,5 +20,20 @@ class Camera(Drawable):
             glRotatef(self.angle, self.rotatex, self.rotatey, self.rotatez)
         glTranslatef(-self.x, -self.y, -self.z)
 
-    def reset(self):
-        self.rotatex, self.rotatey, self.rotatez = 0, 0, 0
+    def move_backward(self, factor):
+        self.z += factor
+
+    def move_forward(self, factor):
+        self.z -= factor
+
+    def move_right(self, factor):
+        self.x += factor
+
+    def move_left(self, factor):
+        self.x -= factor
+
+    def move_up(self, factor):
+        self.y += factor
+
+    def move_down(self, factor):
+        self.y -= factor
