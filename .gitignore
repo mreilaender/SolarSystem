@@ -15,7 +15,7 @@
 
 # Astah
 *.bak
-
+*.asta
 src/resource
 
 # Byte-compiled / optimized / DLL files
