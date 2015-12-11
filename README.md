@@ -12,3 +12,6 @@ Playing around with gluLookAt and use it instead of translate and rotate the who
 
 If camera looks above, just the reference point is changed.
 If the camera moves around, both reference and viewpoint are changed.
+
+# Camera branch
+On this branch the camera looking works partly. I've to finish playing around with gluLookAt, maybe it will work then.
