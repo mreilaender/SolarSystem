@@ -2,20 +2,23 @@ import pyglet
 from pyglet.gl import *
 
 from src.main.Camera import Camera
+from src.main.CameraLookAt import CameraLookAt
 from src.main.KeyControls import KeyControls
 from src.main.Orb import Surface, Planet
 
-window = pyglet.window.Window()
+fullscreen = True
+window = pyglet.window.Window(fullscreen=fullscreen)
 
-window.set_size(1280, 720)
+if not fullscreen:
+    window.set_size(1280, 720)
 window.set_mouse_visible(False)
 
 # Field of View
 fov = 45
-camera = Camera()
-camera.x = 10
-camera.y = 10
-camera.z = 50
+camera = CameraLookAt()
+# camera.x = 10
+# camera.y = 10
+# camera.z = 50
 
 orbs = {}
 # Initialize planets

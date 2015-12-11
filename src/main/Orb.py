@@ -1,6 +1,7 @@
 from abc import *
 
 import pyglet
+from pyglet.gl import glGenerateMipmap
 from pyglet.gl.gl import *
 from pyglet.gl.glu import *
 __author__ = 'mreilaener'
@@ -95,6 +96,7 @@ class Surface(object):
         self.texture_path = texture_path
         self.image = pyglet.resource.image(self.texture_path)
         self.texture = self.image.texture
+        # glGenerateMipmap(self.image.target)
         self._verify('width')
         self._verify('height')
 
