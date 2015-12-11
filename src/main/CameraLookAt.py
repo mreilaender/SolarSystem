@@ -44,16 +44,3 @@ class CameraLookAt(object):
 
     def look_horizontal(self, factor):
         self.centerx += factor
-    """
-    def look_down(self, factor):
-        self.centery -= factor
-
-    def look_up(self, factor):
-        self.centery += factor
-
-    def look_right(self, factor):
-        self.centerx += factor
-
-    def look_left(self, factor):
-        self.centerx -= factor
-    """

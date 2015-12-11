@@ -46,8 +46,7 @@ class KeyControls(object):
         :param dx: Changed x-Coordinate since last call of mouse_motion
         :param dy: Changed y-Coordinate since last call of mouse_motion
         """
-        """
-        print("dx: %s, dy: %s" % (dx, dy))
+        # print("dx: %s, dy: %s" % (dx, dy))
         factor = 0.1
         if dx < 100:
             if dx != 0:
@@ -59,7 +58,6 @@ class KeyControls(object):
                 # self.camera.look_horizontal(dy*factor)
                 self.camera.look_vertical(dx*factor)
                 pass
-        """
 
     def camera_update(self, dt):
         """
