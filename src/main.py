@@ -32,7 +32,7 @@ texplanet = Surface("example.png")
 
 # Initialize planets
 center = Planet("Sun", 3, surface=texplanet, day_scale=0.5, year_scale=0)
-planet2 = Planet("Test Planet2", 1, surface=False, day_scale=1, year_scale=1)
+planet2 = Planet("Test Planet2", 1, surface=texplanet, day_scale=1, year_scale=1)
 
 # Plantes over planets o.O
 planet1_1 = Planet("Test Planet", 2, surface=False, day_scale=2, year_scale=2)
