@@ -6,7 +6,7 @@ class CameraLookAt(object):
     def __init__(self):
         self.eyex , self.eyey, self.eyez = 0, 0, 50
         self.centerx, self.centery, self.centerz = 0, 0, 0
-        self.upx, self.upy, self.upz = 0, 1, 0
+        self.upx, self.upy, self.upz = 0, 1.0, 0
 
     def draw(self):
         gluLookAt(
