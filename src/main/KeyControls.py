@@ -81,7 +81,8 @@ class KeyControls(object):
             self.camera.move_up(factor)
         if self.keys[key.LCTRL]:
             self.camera.move_down(factor)
-        """
         if self.keys[key.NUM_ADD]:
             self.camera.centery -= factor
-        """
+        if self.keys[key.NUM_SUBTRACT]:
+            self.camera.centery += factor
+
